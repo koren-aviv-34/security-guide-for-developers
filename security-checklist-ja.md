@@ -62,12 +62,21 @@ SSLストリッピングを防ぐため、HSTSヘッダーを追加すること�
   
 ##### SANITIZATION OF INPUT
 - [ ] `Sanitize` all user inputs or any input parameters exposed to user to prevent [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting).
-- [ ] Always use parameterized queries to prevent [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection).  
+1.XSSを防止為に、
+すべてのユーザー入力またはユーザーに公開されている入力パラメーターをサニタイズしましょう。
+- [ ] Always use parameterized queries to prevent [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection).
+2.SQLインジェクションを防ぐには、常にパラメータ化されたクエリを使用してください。
+  例えば、bindValue関数を使うなど
 - [ ] Sanitize user input if using it directly for functionalities like CSV import.
+3.CSVインポートなどの機能に直接使用する場合は、ユーザー入力をサニタイズしましょう。
 - [ ] `Sanitize` user input for special cases like robots.txt as profile names in case you are using a url pattern like coolcorp.io/username. 
+4.coolcorp.io/[ユーザー名]のようなURLパターンを使用している場合は、プロファイル名としてrobots.txtのような特殊なケースに対してユーザー入力をサニタイズしましょう。
 - [ ] Do not hand code or build JSON by string concatenation ever, no matter how small the object is. Use your language defined libraries or framework.
+5.オブジェクトをどれくらい小さくしても、コード連結やJSONのストリング連結は行わないでください。言語定義のライブラリまたはフレームワークを使用します。
 - [ ] Sanitize inputs that take some sort of URLs to prevent [SSRF](https://docs.google.com/document/d/1v1TkWZtrhzRLy0bYXBcdLUedXGb9njTNIJXa3u9akHM/edit#heading=h.t4tsk5ixehdd).
+6.SSRFを防ぐためにURLを取り込む入力をサニタイズしましょう。例えば、ユーザー入力のURLをvar_dumpしたり、fpassthruを使ったり場合など
 - [ ] Sanitize Outputs before displaying to users.
+7.ユーザーに表示する前にアウトプットをサニタイズしましょう。
 
 ##### OPERATIONS
 - [ ] If you are small and inexperienced, evaluate using AWS elasticbeanstalk or a PaaS to run your code.
