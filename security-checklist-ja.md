@@ -61,18 +61,13 @@ SSLストリッピングを防ぐため、HSTSヘッダーを追加すること�
  GETリクエストのパタメータとして、重要なデータやトークンを含めないこと。サーバーログや処理内容などが見える状態になっていることは、データ漏洩の危険性があります。 
   
 ##### SANITIZATION OF INPUT
-- [Rev] `Sanitize` all user inputs or any input parameters exposed to user to prevent [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting).XSSを防止為に、すべてのユーザー入力またはユーザーに公開されている入力パラメーターをサニタイズしましょう。
-- [Sec] Always use parameterized queries to prevent [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection).SQLインジェクションを防ぐには、常にパラメータ化されたクエリを使用してください。例えば、bindValue関数を使うなど
-- [Rev] Sanitize user input if using it directly for functionalities like CSV import.
-- CSVインポートなどの機能に直接使用する場合は、ユーザー入力をサニタイズしましょう。
-- [Sec] `Sanitize` user input for special cases like robots.txt as profile names in case you are using a url pattern like coolcorp.io/username. 
-- coolcorp.io/[ユーザー名]のようなURLパターンを使用している場合は、プロファイル名としてrobots.txtのような特殊なケースに対してユーザー入力をサニタイズしましょう。
-- [Rev] Do not hand code or build JSON by string concatenation ever, no matter how small the object is. Use your language defined libraries or framework.
-- オブジェクトをどれくらい小さくしても、コード連結やJSONのストリング連結は行わないでください。言語定義のライブラリまたはフレームワークを使用します。
-- [Sec] Sanitize inputs that take some sort of URLs to prevent [SSRF](https://docs.google.com/document/d/1v1TkWZtrhzRLy0bYXBcdLUedXGb9njTNIJXa3u9akHM/edit#heading=h.t4tsk5ixehdd).
-- SSRFを防ぐためにURLを取り込む入力をサニタイズしましょう。例えば、ユーザー入力のURLをvar_dumpしたり、fpassthruを使ったり場合など
-- [Rev] Sanitize Outputs before displaying to users.
-- ユーザーに表示する前にアウトプットをサニタイズしましょう。
+- [Rev] `Sanitize` all user inputs or any input parameters exposed to user to prevent [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting)。XSSを防止為に、すべてのユーザー入力またはユーザーに公開されている入力パラメーターをサニタイズしましょう。
+- [Sec] Always use parameterized queries to prevent [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection)。SQLインジェクションを防ぐには、常にパラメータ化されたクエリを使用してください。例えば、bindValue関数を使うなど
+- [Rev] Sanitize user input if using it directly for functionalities like CSV import。CSVインポートなどの機能に直接使用する場合は、ユーザー入力をサニタイズしましょう。
+- [Sec] `Sanitize` user input for special cases like robots.txt as profile names in case you are using a url pattern like coolcorp.io/username。coolcorp.io/[ユーザー名]のようなURLパターンを使用している場合は、プロファイル名としてrobots.txtのような特殊なケースに対してユーザー入力をサニタイズしましょう。
+- [Rev] Do not hand code or build JSON by string concatenation ever, no matter how small the object is。Use your language defined libraries or framework。オブジェクトをどれくらい小さくしても、コード連結やJSONのストリング連結は行わないでください。言語定義のライブラリまたはフレームワークを使用します。
+- [Sec] Sanitize inputs that take some sort of URLs to prevent [SSRF](https://docs.google.com/document/d/1v1TkWZtrhzRLy0bYXBcdLUedXGb9njTNIJXa3u9akHM/edit#heading=h.t4tsk5ixehdd)。SSRFを防ぐためにURLを取り込む入力をサニタイズしましょう。例えば、ユーザー入力のURLをvar_dumpしたり、fpassthruを使ったり場合など
+- [Rev] Sanitize Outputs before displaying to users。ユーザーに表示する前にアウトプットをサニタイズしましょう。
 
 ##### OPERATIONS
 - [ ] If you are small and inexperienced, evaluate using AWS elasticbeanstalk or a PaaS to run your code.
