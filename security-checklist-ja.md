@@ -61,7 +61,7 @@ SSLストリッピングを防ぐため、HSTSヘッダーを追加すること�
  GETリクエストのパタメータとして、重要なデータやトークンを含めないこと。サーバーログや処理内容などが見える状態になっていることは、データ漏洩の危険性があります。 
   
 ##### SANITIZATION OF INPUT
-- [ ](Rev) `Sanitize` all user inputs or any input parameters exposed to user to prevent [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting).
+- [ ]"Rev" `Sanitize` all user inputs or any input parameters exposed to user to prevent [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting).
 - XSSを防止為に、
 すべてのユーザー入力またはユーザーに公開されている入力パラメーターをサニタイズしましょう。
 - [ ](Sec) Always use parameterized queries to prevent [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection). 
